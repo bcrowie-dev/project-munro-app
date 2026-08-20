@@ -1,7 +1,9 @@
+import { FontAwesome5 } from '@expo/vector-icons';
 import { Stack } from "expo-router";
 import React, { useRef, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import MapView, { Region } from 'react-native-maps';
+import MapView, { Marker, Region } from 'react-native-maps';
+import { COLOURS } from '../constants/colours';
 
 // Sets the bounds of map to Scotland and its isles
 const SCOTLAND_BOUNDS = {
@@ -9,6 +11,45 @@ const SCOTLAND_BOUNDS = {
   maxLat: 60.95, // top bound 
   minLng: -8.7, // left bound
   maxLng: -0.7, // right bound
+};
+
+type MunroData = {
+  name: string;
+  altitude: number;
+  latitude: number;
+  longitude: number;
+};
+
+type MunroMakerProps = {
+  id: string;
+  munro: MunroData;
+};
+
+// Dictionary to store all munros and relevant data
+const MUNROS = { 
+  ben_lomond: { name: "Ben Lomond", altitude: 974, latitude: 56.1903, longitude: -4.6330 },
+  beinn_narnain: { name: "Beinn Narnain", altitude: 926, latitude: 56.2209, longitude: -4.7890 },
+  beinn_ime: { name: "Beinn Ime", altitude: 1012, latitude: 56.2368, longitude: -4.8172 },
+};
+
+// Creates Munro markers on the map. Value from MUNROS must be passed in as the param
+const MunroMaker = ({ munro }: MunroMakerProps) => {
+  return (
+    <Marker
+      coordinate={{
+        latitude: munro.latitude,
+        longitude: munro.longitude,
+      }}
+    >
+      <View style={styles.MunroIcon}>
+        <FontAwesome5 
+          name="mountain" 
+          size={16} 
+          color={COLOURS.munro_icon_unbagged_dm} // This will be updated to a condition once isBagged is coded in
+        />
+      </View>
+    </Marker>
+  );
 };
 
 export default function HomeScreen() {
@@ -77,6 +118,7 @@ export default function HomeScreen() {
       }, 150); // Timeout duration in ms
     }
   };
+
   // Dictates what is appears on the UI
   return (
     // Parent container in which all elements and child containers can be placed
@@ -112,8 +154,16 @@ export default function HomeScreen() {
         onMapReady={() => setIsMapReady(true)}
         showsPointsOfInterest={false}
         showsCompass={true}
-        showsScale={true}  
-      />
+        showsScale={true}
+      >
+      {Object.entries(MUNROS).map(([id, munro]) => (
+          <MunroMaker
+            key={id}
+            id={id}
+            munro={munro}
+          />
+        ))}
+    </MapView>
     </View>
   );
 }
@@ -128,5 +178,12 @@ const styles = StyleSheet.create({
   map: {
     width: '100%',
     height: '100%',
+  },
+  MunroIcon: {
+    // iOS Shadow
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
   }
 });
