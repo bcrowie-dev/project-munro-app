@@ -1,9 +1,10 @@
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Stack } from "expo-router";
 import React, { useRef, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import MapView, { Marker, Region } from 'react-native-maps';
 import { COLOURS } from '../constants/colours';
+import { MUNROS } from '../constants/munros';
 
 // Sets the bounds of map to Scotland and its isles
 const SCOTLAND_BOUNDS = {
@@ -14,43 +15,57 @@ const SCOTLAND_BOUNDS = {
 };
 
 type MunroData = {
+  id: number
   name: string;
+  aka?: string, 
+  identifier?: string,
+  region: string,
   altitude: number;
   latitude: number;
   longitude: number;
 };
 
 type MunroMakerProps = {
-  id: string;
   munro: MunroData;
-};
-
-// Dictionary to store all munros and relevant data
-const MUNROS = { 
-  ben_lomond: { name: "Ben Lomond", altitude: 974, latitude: 56.1903, longitude: -4.6330 },
-  beinn_narnain: { name: "Beinn Narnain", altitude: 926, latitude: 56.2209, longitude: -4.7890 },
-  beinn_ime: { name: "Beinn Ime", altitude: 1012, latitude: 56.2368, longitude: -4.8172 },
+  showLabels: boolean
 };
 
 // Creates Munro markers on the map. Value from MUNROS must be passed in as the param
-const MunroMaker = ({ munro }: MunroMakerProps) => {
+const MunroMaker = ({ munro, showLabels }: MunroMakerProps) => {
   return (
     <Marker
       coordinate={{
         latitude: munro.latitude,
         longitude: munro.longitude,
       }}
+      // Stops iOS from lagging while the map pans
+      tracksViewChanges={false}
     >
-      <View style={styles.MunroIcon}>
+      <View style={styles.iconWrapper}>
         <FontAwesome5 
           name="mountain" 
           size={16} 
-          color={COLOURS.munro_icon_unbagged_dm} // This will be updated to a condition once isBagged is coded in
+          color={COLOURS.light.munro_icon_unbagged_lm} 
         />
+        {/*
+        Label sits outside layout flow so it doesn't shift the icon
+        Conditionally render the text only if showLabels is true
+        */}
+        {showLabels && (
+          <Text style={styles.markerLabel} numberOfLines={1}>
+            {munro.name}
+          </Text>
+        )}
       </View>
     </Marker>
   );
 };
+
+// Convert MUNROS object to an array once outside the component for fast filtering
+const MUNRO_LIST = Object.values(MUNROS)
+
+// Latitude delta threshold (e.g., 0.8 degrees visible height ~= zoomed in view)
+const LABEL_ZOOM_THRESHOLD = 0.5; 
 
 export default function HomeScreen() {
   /* 
@@ -58,6 +73,9 @@ export default function HomeScreen() {
   Pos2 = updateer function - re-renders the screen and gives the variable its new value
   */
   const [isMapReady, setIsMapReady] = useState(false);
+
+  // Track visible subset and label toggle
+  const [showLabels, setShowLabels] = useState(false);
 
   /* 
   Creates a variable (mapRef) that will be paired with the map on the screen once it has loaded
@@ -119,6 +137,15 @@ export default function HomeScreen() {
     }
   };
 
+  // Runs on EVERY touch frame during pinch/pan gestures
+  const handleRegionChange = (region: Region) => {
+    // Synchronous zoom check (0ms overhead)
+    const isZoomedIn = region.latitudeDelta <= LABEL_ZOOM_THRESHOLD;
+
+    // Update state
+    setShowLabels(isZoomedIn); 
+  };
+
   // Dictates what is appears on the UI
   return (
     // Parent container in which all elements and child containers can be placed
@@ -132,16 +159,17 @@ export default function HomeScreen() {
         pitchEnabled={false} // Disables 3D viewing
         rotateEnabled={false} // Disables map rotation
         // Establishes the starting parameters for the map when the page is first loaded
-        initialCamera={{
-          center: { latitude: 56.8198,longitude: -4.2052 }, // Sets the starting centre point of the map
-          pitch: 0, // Sets the map to a 2D view
-          heading: 0, // Sets the map pointing north
-          altitude: 1500000, // Sets zoom level in meters
+        initialRegion={{
+          latitude: 56.8198,
+          longitude: -4.2052, // Sets the starting centre point of the map
+          latitudeDelta: 3.5,
+          longitudeDelta: 3.5,
         }}
         /*
-        Prop assigns the region value to the custom function upon map movement stopping
+        Property (prop) assigns the region value to the custom function upon map movement stopping
         function is then called each time the map stops moving
         */
+        onRegionChange={handleRegionChange}
         onRegionChangeComplete={handleRegionChangeComplete}
         cameraZoomRange={
           isMapReady
@@ -153,14 +181,15 @@ export default function HomeScreen() {
         }
         onMapReady={() => setIsMapReady(true)}
         showsPointsOfInterest={false}
-        showsCompass={true}
+        showsCompass={true} // check if need to delete
         showsScale={true}
       >
-      {Object.entries(MUNROS).map(([id, munro]) => (
+      {/* Iterates through the dictionary and uses the data to create a marker per entry*/}
+      {MUNRO_LIST.map((munro) => (
           <MunroMaker
-            key={id}
-            id={id}
+            key={munro.id}
             munro={munro}
+            showLabels={showLabels} // Passed to all 282 markers
           />
         ))}
     </MapView>
@@ -179,11 +208,21 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  MunroIcon: {
-    // iOS Shadow
-    shadowColor: '#000',
+  // Only applied to the marker because the label position is "absolue"
+  iconWrapper: {
+    shadowColor: COLOURS.light.munro_label_shdw_lm,
     shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.4,
     shadowRadius: 3,
-  }
+    
+  },
+  markerLabel: {
+    position: 'absolute',
+    left: 23,           // Pushes text past the 16px icon
+    bottom: -2,          // Lines up base of text with base of icon
+    width: 140,         // Gives text a fixed width to prevent wrapping
+    fontSize: 12,
+    fontWeight: '600',
+    color: COLOURS.light.munro_label_lm,
+  },
 });
