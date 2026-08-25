@@ -106,8 +106,6 @@ export const MUNROS = {
     13: {
         id: 13, 
         name: "Carn Eighe",
-        aka: "",
-        identifier: "",
         region: MUNRO_REGIONS[11],
         altitude: 1183, 
         latitude: 57.28770, 
@@ -116,8 +114,6 @@ export const MUNROS = {
     14: {
         id: 14, 
         name: "Mam Sodhail",
-        aka: "",
-        identifier: "",
         region: MUNRO_REGIONS[11],
         altitude: 1180, 
         latitude: 57.27980, 
@@ -172,6 +168,171 @@ export const MUNROS = {
         altitude: 1156, 
         latitude: 57.06280, 
         longitude: -3.62200 
+    },
+    21: {
+        id: 21, 
+        name: "Lochnagar",
+        identifier: "Cac Carn Beag",
+        region: MUNRO_REGIONS[7],
+        altitude: 1156, 
+        latitude: 56.96027, 
+        longitude: -3.24526 
+    },
+    22: {
+        id: 22, 
+        name: "Sgurr na Lapaich",
+        region: MUNRO_REGIONS[12],
+        altitude: 1152, 
+        latitude: 57.36931, 
+        longitude: -5.05973
+    },
+    23: {
+        id: 23, 
+        name: "Sgurr nan Ceathreamhnan",
+        region: MUNRO_REGIONS[11],
+        altitude: 1150, 
+        latitude: 57.25491, 
+        longitude: -5.22273 
+    },
+    24: {
+        id: 24, 
+        name: "Bidean nam Bian",
+        region: MUNRO_REGIONS[3],
+        altitude: 1150, 
+        latitude: 56.64276, 
+        longitude: -5.02933
+    },
+    25: {
+        id: 25, 
+        name: "Ben Alder",
+        region: MUNRO_REGIONS[4],
+        altitude: 1148, 
+        latitude: 56.81380, 
+        longitude: -4.46509 
+    },
+    26: {
+        id: 26, 
+        name: "Geal-Charn",
+        region: MUNRO_REGIONS[4],
+        altitude: 1131, 
+        latitude: 56.83783, 
+        longitude: -4.50969 
+    },
+    27: {
+        id: 27, 
+        name: "Ben Lui",
+        aka: "Beinn Laoigh",
+        region: MUNRO_REGIONS[1],
+        altitude: 1131, 
+        latitude: 56.39700, 
+        longitude: -4.81051 
+    },
+    28: {
+        id: 28, 
+        name: "Binnein Mor",
+        region: MUNRO_REGIONS[4],
+        altitude: 1129, 
+        latitude: 56.75438, 
+        longitude: -4.92580
+    },
+    29: {
+        id: 29, 
+        name: "Creag Meagaidh",
+        region: MUNRO_REGIONS[9],
+        altitude: 1128, 
+        latitude: 56.95202, 
+        longitude: -4.60212 
+    },
+    30: {
+        id: 30, 
+        name: "An Riabhachan",
+        region: MUNRO_REGIONS[12],
+        altitude: 1128, 
+        latitude: 57.36244, 
+        longitude: -5.10475 
+    },
+    31: {
+        id: 31, 
+        name: "Ben Cruachan",
+        region: MUNRO_REGIONS[3],
+        altitude: 1127, 
+        latitude: 56.42684, 
+        longitude: -5.13180 
+    },
+    32: {
+        id: 32, 
+        name: "Meall Garbh",
+        region: MUNRO_REGIONS[2],
+        altitude: 1123, 
+        latitude: 56.56613, 
+        longitude: -4.20770 
+    },
+    33: {
+        id: 33, 
+        name: "Beinn a' Ghlo",
+        identifier: "Carn nan Gabhar",
+        region: MUNRO_REGIONS[6],
+        altitude: 1122, 
+        latitude: 56.83985, 
+        longitude: -3.68802 
+    },
+    34: {
+        id: 34, 
+        name: "A' Chraileag",
+        aka: "A' Chralaig",
+        region: MUNRO_REGIONS[11],
+        altitude: 1119, 
+        latitude: 57.18424, 
+        longitude: -5.15486
+    },
+    35: {
+        id: 35, 
+        name: "An Stuc",
+        region: MUNRO_REGIONS[2],
+        altitude: 1117, 
+        latitude: 56.56008, 
+        longitude: -4.21625 
+    },
+    36: {
+        id: 36, 
+        name: "Stob Coire an Laoigh",
+        region: MUNRO_REGIONS[4],
+        altitude: 1117, 
+        latitude: 56.81088, 
+        longitude: 4.88489 
+    },
+    37: {
+        id: 37, 
+        name: "Stob Coire Easain",
+        region: MUNRO_REGIONS[4],
+        altitude: 1116, 
+        latitude: 56.81820, 
+        longitude: -4.77371 
+    },
+    38: {
+        id: 38, 
+        name: "Sgor Gaoith",
+        region: MUNRO_REGIONS[8],
+        altitude: 1116, 
+        latitude: 57.06855, 
+        longitude: -3.81086
+    },
+    39: {
+        id: 39, 
+        name: "Aonach Beag",
+        identifier: "Loch Coire Cheap",
+        region: MUNRO_REGIONS[4],
+        altitude: 1116, 
+        latitude: 56.83350, 
+        longitude: -4.52918 
+    },
+    40: {
+        id: 40, 
+        name: "Monadh Mor",
+        region: MUNRO_REGIONS[8],
+        altitude: 1113, 
+        latitude: 57.02680, 
+        longitude: -3.750070 
     },
     99: {
         id: 99,
