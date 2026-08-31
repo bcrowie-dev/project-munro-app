@@ -1327,6 +1327,174 @@ export const MUNROS = {
         latitude: 57.41309,
         longitude: -5.22367
     },
+    161: {
+        id: 161,
+        name: "Sgurr Mor",
+        aka: "Sgurr Mhor",
+        identifier: "Beinn Alligin",
+        region: MUNRO_REGIONS[13],
+        altitude: 986,
+        latitude: 57.59083,
+        longitude: -5.57277
+    },
+    162: {
+        id: 162,
+        name: "Sgurr Dearg",
+        aka: "Inaccessible Pinnacle",
+        region: MUNRO_REGIONS[17],
+        altitude: 986,
+        latitude: 57.21326,
+        longitude: -6.23482
+    },
+    163: {
+        id: 163,
+        name: "Ben Vorlich",
+        identifier: "Loch Earn",
+        region: MUNRO_REGIONS[1],
+        altitude: 985,
+        latitude: 56.34268,
+        longitude: -4.21946
+    },
+    164: {
+        id: 164,
+        name: "Druim Shionnach",
+        region: MUNRO_REGIONS[10],
+        altitude: 985,
+        latitude: 57.12679,
+        longitude: -5.18284
+    },
+    165: {
+        id: 165,
+        name: "Gulvain",
+        aka: "Gaor Bheinn",
+        region: MUNRO_REGIONS[10],
+        altitude: 983,
+        latitude: 56.93621,
+        longitude: -5.28453
+    },
+    166: {
+        id: 166,
+        name: "Meall na Aighean",
+        region: MUNRO_REGIONS[2],
+        altitude: 982,
+        latitude: 56.62063,
+        longitude: -4.12874
+    },
+    167: {
+        id: 167,
+        name: "Mullach na Dheiragain",
+        region: MUNRO_REGIONS[11],
+        altitude: 982,
+        latitude: 57.28340,
+        longitude: -5.18633
+    },
+    168: {
+        id: 168,
+        name: "An Gearanach",
+        region: MUNRO_REGIONS[4],
+        altitude: 982,
+        latitude: 56.75917,
+        longitude: -4.96623
+    },
+    169: {
+        id: 169,
+        name: "Stob Coire a' Chairn",
+        region: MUNRO_REGIONS[4],
+        altitude: 981,
+        latitude: 56.75076,
+        longitude: -4.96898
+    },
+    170: {
+        id: 170,
+        name: "Beinn a' Chochuill",
+        region: MUNRO_REGIONS[3],
+        altitude: 981,
+        latitude: 56.44979,
+        longitude: -5.06855
+    },
+    171: {
+        id: 171,
+        name: "Slioch",
+        identifier: "North Top",
+        region: MUNRO_REGIONS[14],
+        altitude: 981,
+        latitude: 57.66715,
+        longitude: -5.34706
+    },
+    172: {
+        id: 172,
+        name: "Ciste Dhubh",
+        region: MUNRO_REGIONS[11],
+        altitude: 981,
+        latitude: 57.19924,
+        longitude: -5.20903
+    },
+    173: {
+        id: 173,
+        name: "Maol Chinn-dearg",
+        region: MUNRO_REGIONS[10],
+        altitude: 980,
+        latitude: 57.12756,
+        longitude: -5.25265
+    },
+    174: {
+        id: 174,
+        name: "Stob Coire Sgriodain",
+        region: MUNRO_REGIONS[4],
+        altitude: 979,
+        latitude: 56.83174,
+        longitude: -4.69493
+    },
+    175: {
+        id: 175,
+        name: "Beinn Dubhchraig",
+        region: MUNRO_REGIONS[1],
+        altitude: 979,
+        latitude: 56.39129,
+        longitude: -4.74319
+    },
+    176: {
+        id: 176,
+        name: "Cona' Mheall",
+        region: MUNRO_REGIONS[15],
+        altitude: 978,
+        latitude: 57.79108,
+        longitude: -4.90342
+    },
+    177: {
+        id: 177,
+        name: "Stob Ban",
+        identifier: "Grey Corries",
+        region: MUNRO_REGIONS[4],
+        altitude: 977,
+        latitude: 56.81066,
+        longitude: -4.84088
+    },
+    178: {
+        id: 178,
+        name: "Meall nan Ceapraichean",
+        region: MUNRO_REGIONS[15],
+        altitude: 977,
+        latitude: 57.79851,
+        longitude: -4.93401
+    },
+    179: {
+        id: 179,
+        name: "Carn a' Gheoidh",
+        region: MUNRO_REGIONS[6],
+        altitude: 976,
+        latitude: 56.87306,
+        longitude: -3.46662
+    },
+    180: {
+        id: 180,
+        name: "Carn Liath",
+        identifier: "Beinn a' Ghlo",
+        region: MUNRO_REGIONS[6],
+        altitude: 976,
+        latitude: 56.80777,
+        longitude: -3.74409
+    },
     184: {
         id: 184,
         name: "Ben Lomond",
