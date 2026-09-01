@@ -262,6 +262,7 @@ export const MUNROS = {
     32: {
         id: 32, 
         name: "Meall Garbh",
+        identifier: "Ben Lawers",
         region: MUNRO_REGIONS[2],
         altitude: 1123, 
         latitude: 56.56613, 
@@ -1495,13 +1496,88 @@ export const MUNROS = {
         latitude: 56.80777,
         longitude: -3.74409
     },
-    184: {
-        id: 184,
+    181: {
+        id: 181,
+        name: "Beinn Sgritheall",
+        region: MUNRO_REGIONS[10],
+        altitude: 974,
+        latitude: 57.15382,
+        longitude: -5.57973
+    },
+    182: {
+        id: 182,
         name: "Ben Lomond",
         region: MUNRO_REGIONS[1],
         altitude: 974,
         latitude: 56.19030,
         longitude: -4.63301
+    },
+    183: {
+        id: 183,
+        name: "A' Mharconaich",
+        region: MUNRO_REGIONS[5],
+        altitude: 973,
+        latitude: 56.85700,
+        longitude: -4.29067
+    },
+    184: {
+        id: 184,
+        name: "Stuc a' Chroin",
+        region: MUNRO_REGIONS[1],
+        altitude: 973,
+        latitude: 56.32932,
+        longitude: -4.23753
+    },
+    185: {
+        id: 185,
+        name: "Sgurr a' Ghreadaidh",
+        region: MUNRO_REGIONS[17],
+        altitude: 972,
+        latitude: 57.22731,
+        longitude: -6.23442
+    },
+    186: {
+        id: 186,
+        name: "Sgorr nam Fiannaidh",
+        identifier: "Aonach Eagach",
+        region: MUNRO_REGIONS[3],
+        altitude: 968,
+        latitude: 56.67939,
+        longitude: -5.03714
+    },
+    187: {
+        id: 187,
+        name: "Meall Garbh",
+        identifier: "Glen Lyon",
+        region: MUNRO_REGIONS[2],
+        altitude: 968,
+        latitude: 56.63738,
+        longitude: -4.20747
+    },
+    188: {
+        id: 188,
+        name: "Sgurr nan Gillean",
+        region: MUNRO_REGIONS[17],
+        altitude: 966,
+        latitude: 57.24822,
+        longitude: -6.19316
+    },
+    189: {
+        id: 189,
+        name: "Ben More",
+        identifier: "Mull",
+        region: MUNRO_REGIONS[17],
+        altitude: 966,
+        latitude: 56.42483,
+        longitude: -6.01400
+    },
+    190: {
+        id: 190,
+        name: "A' Mhaighdean",
+        region: MUNRO_REGIONS[14],
+        altitude: 966,
+        latitude: 57.71965,
+        longitude: -5.34674
     },
     259: {
         id: 259,
